@@ -95,8 +95,8 @@ function transformStrings(obj4, transformFunc) {
                 arr.push({ value: value[key], step: step + 1 })
 
             }
-            else{
-              value[key] = value[key].toUpperCase()
+            else {
+                value[key] = value[key].toUpperCase()
             }
         }
     }
@@ -112,8 +112,20 @@ const obj4 = {
         }
     }
 };
-console.log(transformStrings(obj4, str => str.toUpperCase()));
+// console.log(transformStrings(obj4, str => str.toUpperCase()));
 // // Output: { a: "HELLO", b: { c: "WORLD", d: { e: "TEST" } } }
+
+// Task 102
+// Berilgan massiv ichidagi elementlarni qatorga birlashtiring, faqat takrorlanmaydigan elementlarni saqlang.
+
+function uniqueConcat(arr) {
+    let set = new Set(arr)
+   return Array.from(set).join("")
+}
+
+// console.log(uniqueConcat(['a', 'b', 'c', 'a', 'b', 'd']));
+// Output: "abcd"
+
 
 
 
