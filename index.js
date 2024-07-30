@@ -126,7 +126,16 @@ function uniqueConcat(arr) {
 // console.log(uniqueConcat(['a', 'b', 'c', 'a', 'b', 'd']));
 // Output: "abcd"
 
+// Task 103
+// Berilgan massiv ichidagi o'xshash elementlarni toping.
 
+function findDuplicates(arr) {
+   let result = arr.filter((item,index) => arr.indexOf(item) !== index)
+   return result
+}
+
+console.log(findDuplicates([1, 2, 3, 1, 2, 4]));
+// Output: [1, 2]
 
 
 
