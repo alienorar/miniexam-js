@@ -26,6 +26,7 @@ function extractAndSortNumbers(str) {
 // console.log(extractAndSortNumbers("a3c2d4b1"));
 // Output: [1, 2, 3, 4]
 
+
 // Task 98
 // Berilgan ob'ekt ichidagi barcha qiymatlar son bo'lsa, ularni ikki barobar oshiring.
 
@@ -55,6 +56,7 @@ const obj = {
 // console.log(doubleNumericValues(obj));
 // Output: { a: 2, b: { c: 4, d: { e: 6, f: 8 } } }
 
+
 // Task 99
 // Berilgan ob'ekt ichidagi barcha kalitlarni camelCase formatida qaytaring.
 
@@ -80,44 +82,28 @@ const obj2 = {
 // console.log(toCamelCase(obj2));
 // Output: { firstKey: 1, secondKey: { thirdKey: 2 } }
 
-function fn(str) {
-   let result = []
-    let arr = str.split('-') && str.split('_')
-    // console.log(arr);
-    arr.map(item => {
-      result.push(item[0].toUpperCase() + item.slice(1));
-    });  
-    return result.join("")
-}
-// console.log(fn('my-hyphen_string'));
-
-
-// results in 'myHyphenString'
-
 // Task 100
 // Berilgan ob'ekt ichidagi barcha stringlarni berilgan funksiya yordamida o'zgartiring.
 
-function transformStrings(obj3, transformFunc) {
-//     function transform() {
-//         for (const key in obj3) {
-//             if (typeof obj3[key] === "string") {
-//               return transformFunc(obj3[key])
-//             }
-//             else if (typeof obj3[key] === "object", obj3[key] !== null) {
-//                 if (obj3.hasOwnProperty(key)) {
-//                     obj3[key] = transform(obj3[key])
-//                 }
-             
-//             }
-//         }
-//         return obj3
-//     }
-  
-// return transform(obj3)
+function transformStrings(obj4, transformFunc) {
+    let arr = [{ value: obj4, step: 1 }]
+    let result = []
+    for (let i = 0; i < arr.length; i++) {
+        const { value, step } = arr[i]
+        for (const key in value) {
+            if (typeof value[key] === "object") {
+                arr.push({ value: value[key], step: step + 1 })
 
-Object.defineProperty()
+            }
+            else{
+              value[key] = value[key].toUpperCase()
+            }
+        }
+    }
+    return obj4
 }
-const obj3 = {
+
+const obj4 = {
     a: "hello",
     b: {
         c: "world",
@@ -126,5 +112,9 @@ const obj3 = {
         }
     }
 };
-console.log(transformStrings(obj3, str => str.toUpperCase()));
-// Output: { a: "HELLO", b: { c: "WORLD", d: { e: "TEST" } } }
+console.log(transformStrings(obj4, str => str.toUpperCase()));
+// // Output: { a: "HELLO", b: { c: "WORLD", d: { e: "TEST" } } }
+
+
+
+
